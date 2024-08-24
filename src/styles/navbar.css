@@ -1,0 +1,17 @@
+.logo {
+    width: 100px;
+    height: 70px;
+    margin-left: 20px;
+}
+
+.favoritos {
+    margin-right: 20px;
+}
+
+.fa {
+    color: red;
+}
+
+.navbar {
+    background: black !important;
+}
