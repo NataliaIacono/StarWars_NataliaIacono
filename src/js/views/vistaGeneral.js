@@ -4,19 +4,15 @@ import Personajes from '../component/personajes';
 import Planetas from '../component/planetas';
 import Vehiculos from '../component/vehiculos';
 
+import '../../styles/vistaGeneral.css';
+
 const VistaGeneral = () => {
     const { store, actions } = useContext(Context);
     return (
-        <div>
-            <section>
-                <Personajes />
-            </section>
-            <section>
-                <Planetas />
-            </section>
-            <section>
-                <Vehiculos />
-            </section>
+        <div className="background">
+            <Personajes />
+            <Planetas />
+            <Vehiculos />
         </div>
     );
 };

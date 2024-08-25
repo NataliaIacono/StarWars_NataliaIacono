@@ -1,0 +1,12 @@
+.container {
+    margin: 0px;
+}
+
+.scroll-container {
+    display: flex; /* Organiza los elementos en fila */
+    overflow-x: auto; /* Habilita la barra de desplazamiento horizontal */
+    white-space: nowrap; /* Evita que los elementos se envuelvan en múltiples líneas */
+    width: 100%; /* Ancho del contenedor */
+    padding: 10px; /* Espaciado interno, opcional */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+}

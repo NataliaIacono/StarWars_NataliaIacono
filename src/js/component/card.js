@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../store/appContext';
+import { Link } from 'react-router-dom';
 
-const Card = ({ name, gender, hair_color, eye_color }) => {
+const Card = ({ name, gender, hair_color, eye_color, uid }) => {
+    const { store, actions } = useContext(Context);
     return (
         <div>
             <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
+                <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <p>{gender}</p>
-                    <p>{hair_color}</p>
-                    <p>{eye_color}</p>
-                    <button className="btn btn-primary">+ info</button>
+                    <p>Gender: {gender}</p>
+                    <p>Cabello: {hair_color}</p>
+                    <p>Ojos: {eye_color}</p>
+                    <Link to="/detalle/:uid">
+                        <button className="btn btn-dark">+ info</button>
+                    </Link>
+                    <button
+                        className="btn btn-Emphasis"
+                        onClick={() => {
+                            actions.favoritos(name);
+                        }}>
+                        ♥
+                    </button>
                 </div>
             </div>
         </div>

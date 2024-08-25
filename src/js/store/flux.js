@@ -1,5 +1,3 @@
-import Vehiculos from '../component/vehiculos';
-
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
@@ -26,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const responseDetalles = data.results.map(async (personaje) => {
                     const response = await fetch(personaje.url);
                     const data = await response.json();
-                    return data.result.properties;
+                    return data.result;
                 });
 
                 const personajesDetalles = await Promise.all(responseDetalles);
@@ -49,17 +47,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                     const detallesPlanetasPromesas = data.results.map(async (planeta) => {
                         const resDetalle = await fetch(planeta.url);
                         const detalle = await resDetalle.json();
-                        return detalle.result.properties;
+                        console.log(detalle);
+
+                        return detalle.result;
                     });
 
                     //como funciona promise.all?
-                    const planetasDetalles = await Promise.all(detallesPlanetasPromesas);
-                    console.log(planetasDetalles);
+                    const planetasConSusDetalles = await Promise.all(detallesPlanetasPromesas);
+                    console.log(planetasConSusDetalles);
 
-                    setStore({ ...getStore(), planetasDetalles }); // por que asi? y no como abajo
+                    setStore({ planetasDetalles: planetasConSusDetalles }); // por que asi? y no como abajo...PORQUE NO AGREGO NADA LUEGO DE EL GET
 
+                    //tener encuanta esto para FAVORITOS
                     //const store = getStore(); // en la const store guardo todo lo que tiene store
-                    // setStore({ ...store, contactos: contactList }); // actualizo el store
+                    // setStore({ ...store, planetasDetalles: planetasConSusDetalles }); // actualizo el store
                 } catch (error) {
                     console.log(error);
                 }
@@ -78,13 +79,36 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const responseDetalles = data.results.map(async (vehiculo) => {
                     const response = await fetch(vehiculo.url);
                     const data = await response.json();
-                    return data.result.properties;
+                    return data.result;
                 });
 
                 const vehiculosDetalles = await Promise.all(responseDetalles);
                 console.log(vehiculosDetalles);
 
                 setStore({ ...getStore(), vehiculosDetalles });
+            },
+
+            // favoritos: (name) => {
+            //     const store = getStore();
+            //     if (!store.favoritos.includes(name)) {
+            //         setStore({ favoritos: [...store.favoritos, name] });
+            //     } else store.favoritos.includes(name);
+            //     setStore({ favoritos: [...store.favoritos, name] });
+            // },
+
+            favoritos: (name) => {
+                const store = getStore();
+                const favoritos = store.favoritos;
+
+                const index = favoritos.indexOf(name);
+
+                if (index === -1) {
+                    favoritos.push(name);
+                } else {
+                    favoritos.splice(index, 1);
+                }
+
+                setStore({ favoritos: favoritos });
             },
         },
     };
