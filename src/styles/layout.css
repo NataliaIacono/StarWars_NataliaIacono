@@ -1,0 +1,8 @@
+.fondo {
+    background-image: url('https://img.freepik.com/foto-gratis/paisaje-nocturno-galaxia_23-2148895321.jpg?t=st=1724608119~exp=1724611719~hmac=6809619d70fe8b9c57e5eb8c5b99a72d7eb27f0f580706f9fa7f50179bf605dc&w=1060');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Asegura que cubra al menos la altura de la ventana */
+    width: 100vw;
+}

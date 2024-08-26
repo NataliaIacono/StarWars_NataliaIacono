@@ -8,9 +8,9 @@ const Planetas = () => {
     const { store, actions } = useContext(Context);
     return (
         <div className="scroll-container">
-            <div>
+            <div className="row planetas">
                 <h1>Planetas</h1>
-                <div className="container d-flex">
+                <div className="d-flex ">
                     {store.planetasDetalles.map((planeta) => {
                         return <CardPlaneta key={planeta.uid} uid={planeta.uid} name={planeta.properties.name} population={planeta.properties.population} terrain={planeta.properties.terrain} />;
                     })}

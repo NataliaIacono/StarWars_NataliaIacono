@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             vehiculosDetalles: [],
             favoritos: [],
             imagenesPersonajes: [],
+            contador: 0,
         },
         actions: {
             obtenerPersonajes: async () => {
@@ -96,18 +97,30 @@ const getState = ({ getStore, getActions, setStore }) => {
             //     setStore({ favoritos: [...store.favoritos, name] });
             // },
 
-            favoritos: (name) => {
+            favoritos: (name, uid, type) => {
+                const store = getStore();
+                const favoritos = store.favoritos;
+
+                const index = favoritos.findIndex((item) => item.uid === uid);
+
+                if (index === -1) {
+                    favoritos.push({ name, uid, type });
+                } else {
+                    favoritos.splice(index, 1);
+                }
+                setStore({ favoritos: favoritos });
+                console.log(store);
+            },
+
+            eliminarFavorito: (name) => {
                 const store = getStore();
                 const favoritos = store.favoritos;
 
                 const index = favoritos.indexOf(name);
-
-                if (index === -1) {
-                    favoritos.push(name);
-                } else {
-                    favoritos.splice(index, 1);
+                if (index == -1) {
+                    return;
                 }
-
+                favoritos.splice(index, 1);
                 setStore({ favoritos: favoritos });
             },
         },

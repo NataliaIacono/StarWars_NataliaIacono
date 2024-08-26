@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 
-const CardDetalladaP = ({ name, birth_year, gender, height, skin_color, eye_color, uid }) => {
+const CardDetalladaP = ({ name, birth_year, gender, height, skin_color, eye_color, uid, description }) => {
     const { store, actions } = useContext(Context);
 
     return (
@@ -11,7 +11,7 @@ const CardDetalladaP = ({ name, birth_year, gender, height, skin_color, eye_colo
             </div>
             <div>
                 <h1>{name}</h1>
-                <p>info</p>
+                <p>{description}</p>
                 -------------------
                 <div>
                     <p>

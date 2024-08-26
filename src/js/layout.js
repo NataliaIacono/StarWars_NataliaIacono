@@ -4,10 +4,14 @@ import ScrollToTop from './component/scrollToTop';
 
 import injectContext from './store/appContext';
 
+import '../styles/layout.css';
+
 import { Navbar } from './component/navbar';
 import { Footer } from './component/footer';
 import VistaGeneral from './views/vistaGeneral';
 import VistaDetallada from './views/vistaDetallada';
+import VistaDetalladaPlaneta from './views/vistaDetalladaPlaneta';
+import VistaDetalladaVehiculo from './views/vistaDetalladaVehiculo';
 
 //create your first component
 const Layout = () => {
@@ -23,6 +27,8 @@ const Layout = () => {
                     <Routes>
                         <Route path="/" element={<VistaGeneral />} />
                         <Route path="/detalle/:uid" element={<VistaDetallada />} />
+                        <Route path="/detallePlaneta/:uid" element={<VistaDetalladaPlaneta />} />
+                        <Route path="/detalleVehiculo/:uid" element={<VistaDetalladaVehiculo />} />
                         <Route path="*" element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

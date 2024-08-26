@@ -1,6 +1,6 @@
 .logo {
-    width: 100px;
-    height: 70px;
+    width: 130px;
+    height: 90px;
     margin-left: 20px;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .fa {
-    color: red;
+    color: rgb(237, 199, 29);
 }
 
 .navbar {

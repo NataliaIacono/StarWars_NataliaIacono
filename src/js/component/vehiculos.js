@@ -10,9 +10,9 @@ const Vehiculos = () => {
 
     return (
         <div className="scroll-container">
-            <div>
-                <h1>Vehiculos</h1>
-                <div className="container d-flex">
+            <div className="row vehiculos">
+                <h1>Vehículos</h1>
+                <div className="d-flex me-3">
                     {store.vehiculosDetalles.map((vehiculo) => {
                         console.log(vehiculo);
 

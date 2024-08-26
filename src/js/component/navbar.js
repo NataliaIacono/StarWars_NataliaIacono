@@ -3,9 +3,11 @@ import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 
 import '../../styles/navbar.css';
+import Personajes from './personajes';
 
 export const Navbar = () => {
     const { store, actions } = useContext(Context);
+
     return (
         <nav className="navbar navbar-light bg-dark mb-3">
             <Link to="/">
@@ -13,8 +15,8 @@ export const Navbar = () => {
             </Link>
             <div className="favoritos ml-auto">
                 <div className="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Favoritos <i className="fa fa-heart"></i>
+                    <button className="btn btn-secondary dropdown-toggle me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Favoritos <i className="fa fa-heart"></i> {store.favoritos ? store.favoritos.length : 0}
                     </button>
 
                     <ul className="dropdown-menu">
@@ -22,7 +24,18 @@ export const Navbar = () => {
                             <li>No tienes favoritos</li>
                         ) : (
                             store.favoritos.map((favorito, index) => {
-                                return <li key={index}>{favorito}</li>;
+                                return (
+                                    <li key={index}>
+                                        {favorito.type === 'personajes' ? <Link to={`/detalle/${favorito.uid}`}>{favorito.name}</Link> : favorito.type === 'planetas' ? <Link to={`/detallePlaneta/${favorito.uid}`}>{favorito.name}</Link> : favorito.type === 'vehiculos' ? <Link to={`/detalleVehiculo/${favorito.uid}`}>{favorito.name}</Link> : <p>El tipo es incorrecto</p>}
+
+                                        <i
+                                            class="fa-solid fa-trash"
+                                            onClick={(e) => {
+                                                actions.eliminarFavorito(favorito);
+                                                e.stopPropagation();
+                                            }}></i>
+                                    </li>
+                                );
                             })
                         )}
                     </ul>
