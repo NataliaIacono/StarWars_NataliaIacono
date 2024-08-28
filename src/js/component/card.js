@@ -9,14 +9,14 @@ const Card = ({ name, gender, hair_color, eye_color, uid }) => {
     return (
         <div>
             <div className="card">
-                <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="..." />
+                <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="imagen card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <p>Gender: {gender}</p>
-                    <p>Cabello: {hair_color}</p>
-                    <p>Ojos: {eye_color}</p>
+                    <p className="caracteristicas">Gender: {gender}</p>
+                    <p className="caracteristicas">Cabello: {hair_color}</p>
+                    <p className="caracteristicas">Ojos: {eye_color}</p>
                     <Link to={`/detalle/${uid}`}>
-                        <button className="btn btn-dark">+ info</button>
+                        <button className="btn btn-dark mt-2">+ info</button>
                     </Link>
                     <button
                         className="btn btn-Emphasis"

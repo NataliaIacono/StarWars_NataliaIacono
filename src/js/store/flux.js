@@ -99,7 +99,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             favoritos: (name, uid, type) => {
                 const store = getStore();
-                const favoritos = store.favoritos;
+                //const favoritos = store.favoritos; //esto es lo mismo que siguiente renglon,
+                const { favoritos } = store; // esto es desestructurar
 
                 const index = favoritos.findIndex((item) => item.uid === uid);
 
@@ -111,6 +112,21 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ favoritos: favoritos });
                 console.log(store);
             },
+
+            // favoritos: (name, uid, type) => {
+            //     const store = getStore();
+            //     //const favoritos = store.favoritos; //esto es lo mismo que siguiente renglon,
+            //     const { favoritos } = store; // esto es desestructurar
+
+            //     const index = favoritos.findIndex((item) => item.uid === uid);
+
+            //     if (index !== -1) {
+            //         return getActions().eliminarFavorito(name);
+            //     }
+            //     favoritos.push({ name, uid, type });
+            //     setStore({ favoritos: favoritos });
+            //     console.log(store);
+            // },
 
             eliminarFavorito: (name) => {
                 const store = getStore();

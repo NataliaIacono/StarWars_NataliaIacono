@@ -1,0 +1,17 @@
+.imagen-detalle {
+    width: 40%;
+    height: auto;
+}
+
+.contenedor-general-detallada {
+    text-align: center;
+    color: white;
+}
+
+.caracteristicas-detalladas {
+    /*display: table-caption;*/
+    margin: auto;
+}
+.caja-caracteristicas-detalladas {
+    text-align: -webkit-center;
+}

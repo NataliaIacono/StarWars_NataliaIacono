@@ -9,7 +9,7 @@
     width: 100%; /* Ancho del contenedor */
     padding: 5px; /* Espaciado interno, opcional */
     box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
-    margin-left: 40px;
+    /*margin-left: 40px;*/
     margin-right: 40px;
 }
 .scroll-container::-webkit-scrollbar {
