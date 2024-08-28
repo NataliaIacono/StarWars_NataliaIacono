@@ -23,7 +23,14 @@ const Card = ({ name, gender, hair_color, eye_color, uid }) => {
                         onClick={() => {
                             actions.favoritos(name, uid, 'personajes');
                         }}>
-                        ♥
+                        {/*store.favoritos ? <i className="corazon-gris fa-solid fa-heart"></i> : <i className="corazon-rojo fa-solid fa-heart"></i>*/}
+                        {store.favoritos
+                            .map((favorito) => {
+                                return favorito.name;
+                            })
+                            .includes(name)
+                            ? '💛'
+                            : '🩶'}
                     </button>
                 </div>
             </div>

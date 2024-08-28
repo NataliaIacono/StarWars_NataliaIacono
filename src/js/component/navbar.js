@@ -29,7 +29,7 @@ export const Navbar = () => {
                                         {favorito.type === 'personajes' ? <Link to={`/detalle/${favorito.uid}`}>{favorito.name}</Link> : favorito.type === 'planetas' ? <Link to={`/detallePlaneta/${favorito.uid}`}>{favorito.name}</Link> : favorito.type === 'vehiculos' ? <Link to={`/detalleVehiculo/${favorito.uid}`}>{favorito.name}</Link> : <p>El tipo es incorrecto</p>}
 
                                         <i
-                                            class="fa-solid fa-trash"
+                                            className="fa-solid fa-trash"
                                             onClick={(e) => {
                                                 actions.eliminarFavorito(favorito);
                                                 e.stopPropagation();

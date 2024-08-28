@@ -22,7 +22,13 @@ const CardPlaneta = ({ name, population, terrain, uid }) => {
                         onClick={() => {
                             actions.favoritos(name, uid, 'planetas');
                         }}>
-                        ♥
+                        {store.favoritos
+                            .map((favorito) => {
+                                return favorito.name;
+                            })
+                            .includes(name)
+                            ? '💛'
+                            : '🩶'}
                     </button>
                 </div>
             </div>

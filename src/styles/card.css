@@ -5,3 +5,9 @@
 .caracteristicas {
     margin-bottom: 0rem;
 }
+.corazon-gris {
+    color: grey;
+}
+.corazon-rojo {
+    color: rgb(222, 206, 32);
+}
