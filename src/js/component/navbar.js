@@ -3,7 +3,6 @@ import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
 
 import '../../styles/navbar.css';
-import Personajes from './personajes';
 
 export const Navbar = () => {
     const { store, actions } = useContext(Context);
@@ -25,7 +24,7 @@ export const Navbar = () => {
                         ) : (
                             store.favoritos.map((favorito, index) => {
                                 return (
-                                    <li key={index}>
+                                    <li className="lista-favoritos" key={index}>
                                         {favorito.type === 'personajes' ? <Link to={`/detalle/${favorito.uid}`}>{favorito.name}</Link> : favorito.type === 'planetas' ? <Link to={`/detallePlaneta/${favorito.uid}`}>{favorito.name}</Link> : favorito.type === 'vehiculos' ? <Link to={`/detalleVehiculo/${favorito.uid}`}>{favorito.name}</Link> : <p>El tipo es incorrecto</p>}
 
                                         <i

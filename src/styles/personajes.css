@@ -27,7 +27,7 @@
 }
 
 .scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #777; /* Color del thumb al pasar el cursor */
+    background: #dbc32a; /* Color del thumb al pasar el cursor */
 }
 
 .scroll-container .item {
