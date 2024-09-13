@@ -101,8 +101,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const store = getStore();
                 //const favoritos = store.favoritos; //esto es lo mismo que siguiente renglon,
                 const { favoritos } = store; // esto es desestructurar
+                console.log('ES ESTO', favoritos);
 
-                const index = favoritos.findIndex((item) => item.uid === uid);
+                //
+                const index = favoritos.findIndex((item) => item.uid === uid && item.type === type);
+                //cuando no lo encuentra devuelve -1
+
+                console.log('index', index);
 
                 if (index === -1) {
                     favoritos.push({ name, uid, type });
